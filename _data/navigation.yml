@@ -1,10 +1,10 @@
 # main links
 main:
   - title: "Getting Started"
-    url: starting
+    url: /starting/
   - title: "Methods"
     url: /methods/
-  - title: "examples"
+  - title: "Examples"
     url: /examples/
   # - title: "Sample Collections"
   #   url: /collection-archive/
