@@ -2,12 +2,10 @@
 layout: single
 title: "Welcome to DreamGraphs Documentation."
 ---
-Lets get started
+## Hello
 
-Features.
+You stumbled upon the documentation of DreamGraph. This module will help you to work with the Telegra.ph API in Python. 
 
-What you can do.
+## Telegra.ph
 
-I'm a bit bored.
-
-Test2
+Telegra.ph is a minimalist publishing tool that allows you to create richly formatted posts. In addition, posts there gets great Instant View pages on Telegram.
