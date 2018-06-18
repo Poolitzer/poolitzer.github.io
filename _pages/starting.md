@@ -17,7 +17,7 @@ git clone https://github.com/JasurbekNURBOYEV/DreamGraph.git
 
 cd DreamGraph
 
-python setup.py
+python setup.py install
 ```
 
 ## Get a login token
