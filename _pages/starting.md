@@ -22,7 +22,7 @@ python setup.py install
 
 ## Get a login token
 
-In order to post on Telegraph, you need an access_token so it knows who is posting. DreamGraph provides you an quite easy way to login. Just call * in the beginning of your code. It will create an account the first time you run it and log you in after you run it again.
+In order to post on Telegraph, you need an access_token so it knows who is posting. DreamGraph provides you quite an easy way to login. Just call start() in the beginning of your code. It will create an account the first time you run it and log you back in when you restart your skript.
 
 ```
 from dreamgraph import start
@@ -30,13 +30,13 @@ from dreamgraph import start
 start()
 ```
 
-While you need to choose a short name in the beginning (no visitor of your posts will see it, its just a name for you. If you manage several accounts, it may be helpful so you can distinguish them. Otherwise, you are free to choose a random sequel of letters), the rest of the attributes can simply be skipped when you press enter. 
+While you need to choose a short name in the beginning (no visitor of your posts will see it, its just a name for you. If you manage several accounts, it may be helpful so you can distinguish them. Otherwise, you are free to choose a random sequel of letters), the rest of the attributes can simply be skipped by pressing enter. 
 
-If you are curious what happens here, it has an own page in this documentary, here: start-Link. If you don't want to dive in that deep: If you want to make your project open source, don't include the ***.txt and no one can use your account.
+If you are curious what happens here, it has an own page in this documentary, [here]({{ site.baseurl }}{% link _pages/sign_in.md %}).
 
 ## Create a page
 
-You probably want to create a page. You can do this via this command:
+You probably want to create a page. You can do this with this code:
 
 ```
 from dreamgraph import start
@@ -48,15 +48,15 @@ new_page = client.create_page(title='Test', content=[{'tag': 'p', 'children': ['
 print(new_page.url)
 ```
 
-Let's take a look at what we did here, a post created with this code is [here](http://telegra.ph/Test-06-18-27):
+Let's take a look at what we did. You can find a post created with this code [here](http://telegra.ph/Test-06-18-27):
 
 ### Import module
 `from dreamgraph import start`
-Well, you need to get the modules you want to use from somewhere. There you go ;P
+Well, you need to get the module you want to use from somewhere. There you go ;P
 
 ### Start your client
 `client = start()`
-client gets all necessary informations from start() to let you work with Telegraph, which is at least the access_token and additional attributes you provided during the account creation.
+client gets all necessary informations from start() to let you work with Telegraph, which is at least the access_token and maybe additional attributes you provided during the account creation.
 
 ### Create your first page
 `new_page = client.create_page(title='Test', content=[{'tag': 'p', 'children': ['Hello world']}])`
@@ -64,7 +64,7 @@ Probably the most interesting part in our little example. Lets split it up in it
 
 #### client.create_page()
 
-You call the method `create_page` with necessary parameters from client and store it's content in a variable. Nice beginning.
+You call `create_page` with necessary parameters from client and store it's content in a variable. Nice beginning.
 
 #### title='Test'
 
@@ -72,12 +72,12 @@ This is one of the two required parameters. It will be the title of your Telegra
 
 #### content=[{'tag': 'p', 'children': ['Hello world']}]
 
-The second required attribute. It is a Node element, which is explained here. We hope to add easy html and/or markdown support soon.
+The second required attribute. It's a Node element, which looks a bit unhandy, we know. Hopefully we are able to add easy html and/or markdown support soon.
 
 ### Check your page
 `new_page.url`
-As you can see, new_page has some attributes. One of these is the URL of your Telegra.ph post, which you can see in you command line now :D If you want to see more attributes, go here.
+As you can see, new_page has some attributes. One of these is the URL of your Telegra.ph post, which you can see in you command line now :D
 
 ## Where to go now
 
-First of all, congrats!
+First of all, congrats! You managed to post your first page. Maybe thats enough for you, probably not. We would suggest you now to go to the [methods page]({{ site.baseurl }}{% link _pages/methods.md %}) and check out some interesting methods like edit_page. Or have a look at our examples where you see code which is actually used by some projects.
