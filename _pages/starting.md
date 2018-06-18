@@ -39,7 +39,7 @@ If you are curious what happens here, it has an own page in this documentary, he
 You probably want to create a page. You can do this via this command:
 
 ```
-from dreamgraph import start, create_page
+from dreamgraph import start
 
 client = start()
 
