@@ -102,8 +102,8 @@ analytics:
 author:
   name             : "DreamGraph"
   avatar           : "/assets/images/avatar.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "this is a test"
-  location         : "sjjo"
+  bio              : "join our awesome group"
+  location         : 
   email            :
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
