@@ -46,4 +46,6 @@ client.create_page((title='Test', content=[{'tag': 'p', 'children': ['Hello worl
 
 Let's take a look at what we did here:
 
-### 
+### from dreamgraph import start, create_page
+
+Well, 

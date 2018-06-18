@@ -4,8 +4,8 @@ main:
     url: /starting/
   - title: "Methods"
     url: /methods/
-  - title: "Content"
-    url: /content/
+  #- title: "Content"
+   # url: /content/
   - title: "Examples"
     url: /examples/
   - title: "Community"
