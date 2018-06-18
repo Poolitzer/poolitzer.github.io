@@ -68,7 +68,7 @@ You call `create_page` with necessary parameters from client and store it's cont
 
 #### title='Test'
 
-This is one of the two required parameters. It will be the title of your Telegra.ph post. 
+This is one of the two required parameters. It will be the title of your Telegraph post. 
 
 #### content=[{'tag': 'p', 'children': ['Hello world']}]
 
@@ -76,7 +76,7 @@ The second required attribute. It's a Node element, which looks a bit unhandy, w
 
 ### Check your page
 `new_page.url`
-As you can see, new_page has some attributes. One of these is the URL of your Telegra.ph post, which you can see in you command line now :D
+As you can see, new_page has some attributes. One of these is the URL of your Telegraph post, which you can see in you command line now :D
 
 ## Where to go now
 
