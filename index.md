@@ -1,8 +1,9 @@
 ---
 layout: splash
-header:
-  overlay_image: /assets/images/dg.jpg
 ---
+
+<div style="text-align:center"><img src ="/poolitzer.github.io/assets/images/dg.jpg" /></div>
+
 ## Hello
 
 You stumbled upon the documentation of DreamGraph. This module will help you to work with the Telegra.ph API in Python. 
