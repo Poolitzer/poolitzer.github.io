@@ -2,7 +2,11 @@
 permalink: /starting/
 title: "Getting started"
 layout: single
-author_profile: true
+sidebar:
+  - title: "Dreamgraph"
+    image: /assets/images/avatar.jpg
+    image_alt: "a nice little logo"
+    text: "[Join our awesome group on Telegram](https://t.me/dreamgraph)"
 toc: true
 ---
 ## Install
