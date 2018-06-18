@@ -50,34 +50,34 @@ print(new_page.url)
 
 Let's take a look at what we did here, a post created with this code is [here](http://telegra.ph/Test-06-18-27):
 
-### from dreamgraph import start, create_page
-
+### Import module
+`from dreamgraph import start`
 Well, you need to get the modules you want to use from somewhere. There you go ;P
 
-### client = start()
-
+### Start your client
+`client = start()`
 client gets all necessary informations from start() to let you work with Telegraph, which is at least the access_token and additional attributes you provided during the account creation.
 
-### new_page = client.create_page(title='Test', content=[{'tag': 'p', 'children': ['Hello world']}])
-
+### Create your first page
+`new_page = client.create_page(title='Test', content=[{'tag': 'p', 'children': ['Hello world']}])`
 Probably the most interesting part in our little example. Lets split it up in it's parts.
 
-#### new_page = client.create_page
+#### client.create_page()
 
-You call the method create_page with the informations from client and store it's content in a variable. Nice beginning.
+You call the method `create_page` with necessary parameters from client and store it's content in a variable. Nice beginning.
 
 #### title='Test'
 
-This is one of the two required attributes. It will be the title of your Telegra.ph post. 
+This is one of the two required parameters. It will be the title of your Telegra.ph post. 
 
 #### content=[{'tag': 'p', 'children': ['Hello world']}]
 
 The second required attribute. It is a Node element, which is explained here. We hope to add easy html and/or markdown support soon.
 
-### print(new_page.url)
-
+### Check your page
+`new_page.url`
 As you can see, new_page has some attributes. One of these is the URL of your Telegra.ph post, which you can see in you command line now :D If you want to see more attributes, go here.
 
 ## Where to go now
 
-First of all, congrats.
+First of all, congrats!
