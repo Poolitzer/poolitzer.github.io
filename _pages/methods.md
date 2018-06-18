@@ -24,7 +24,7 @@ This is the name you choose to let appear as author of your posts. _Not required
 
 * author_url
 
-Any URL will work. You have to add http:// in the beginning though, otherwise you will get an AUTHOR_URL_INVALID error. _Not required_
+Any URL will work. You have to add http:// at the beginning though, otherwise you will get an AUTHOR_URL_INVALID error. _Not required_
 
 What you probably want from this is your access_token. You will need it for everything else, so remember it. A working code could look like this:
 ```
@@ -41,7 +41,7 @@ And you would get your token, which looks like this:
 
 ### LogIn
 
-You should use this method if you already have created an account and know its access_token. 
+You should use this method if you already have created an account and know its access_token. It returns an [Account object](#account).
 
 * access_token
 
@@ -58,6 +58,12 @@ client = LogIn('a00bdbbbca7e11829119c405907feca8fe9151e5e1400084998cec3039c9')
 
 Honestly. WTF?
 
+## Attributes
+
+### get_account_info
+
+Useful if you want to get informations about your account. It needs the access_token as attribute
+
 Calling this attribute of your account class will return you 
 
 ['get_account_info', 'edit_account_info', 'revoke_access_token', 'create_page', 'edit_page', 'get_page', 'get_page_list', 'get_views']
@@ -72,7 +78,7 @@ This object has normally three attributes.
 
 * short_name
 
-This is the you will always get. No one expect you will see this.
+This is the attribute you will always get. No one except you will see this.
 
 * author_name
 
