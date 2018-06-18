@@ -126,7 +126,17 @@
           
             
             <li class="masthead__menu-item">
+              <a href="http://localhost:4000/poolitzer.github.io/content/" >Content</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
               <a href="http://localhost:4000/poolitzer.github.io/examples/" >Examples</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/poolitzer.github.io/community/" >Community</a>
             </li>
           
         </ul>
@@ -148,6 +158,98 @@
 
 <div id="main" role="main">
   
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Your Name</h3>
+    
+    
+      <p class="author__bio" itemprop="description">
+        I am an amazing person.
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Somewhere</span>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Getting started">
@@ -172,14 +274,14 @@
               <ul class="toc__menu">
   <li><a href="#install">Install</a></li>
   <li><a href="#get-a-login-token">Get a login token</a></li>
-  <li><a href="#next-steps">Next steps</a></li>
+  <li><a href="#create-a-page">Create a page</a></li>
 </ul>
             </nav>
           </aside>
         
         <h2 id="install">Install</h2>
 
-<p>The easiest way to install Telethon is via pip.</p>
+<p>The easiest way to install DreamGraph is via pip.</p>
 
 <p><code class="highlighter-rouge">pip install dreamgraph</code></p>
 
@@ -191,11 +293,31 @@ python setup.py
 
 <h2 id="get-a-login-token">Get a login token</h2>
 
-<p>In order to publish on Telegra.ph, you need an acess_token. Comparable to the Telegram Bot Token, but not that easy to get:</p>
+<p>In order to post on Telegraph, you need an access_token so it knows who is posting. DreamGraph provides you an quite easy way to login. Just call * in the beginning of your code. It will create an account the first time you run it and log you in after you run it again.</p>
 
-<h2 id="next-steps">Next steps</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from dreamgraph import start
 
-<p>You probably want to create a page. You can do this via</p>
+start()
+</code></pre></div></div>
+
+<p>While you need to choose a short name in the beginning (no visitor of you post will see it, its just a name for you. If you manage several accounts, it may be helpful so you can distinguish them. Otherwise, you are free to choose a random sequel of letters).</p>
+
+<p>If you are curious what happens here, it has an own page in this documentary, here: start-Link. How do I do this, btw?</p>
+
+<h2 id="create-a-page">Create a page</h2>
+
+<p>You probably want to create a page. You can do this via this command:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from dreamgraph import start, create_page
+
+client = start()
+
+client.create_page((title='Test', content=[{'tag': 'p', 'children': ['Hello world']}])
+</code></pre></div></div>
+
+<p>Let’s take a look at what we did here:</p>
+
+<p>###</p>
 
         
       </section>

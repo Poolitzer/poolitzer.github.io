@@ -4,9 +4,9 @@ main:
     url: /starting/
   - title: "Methods"
     url: /methods/
+  - title: "Content"
+    url: /content/
   - title: "Examples"
     url: /examples/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "Community"
+    url: /community/

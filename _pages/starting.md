@@ -2,6 +2,7 @@
 permalink: /starting/
 title: "Getting started"
 layout: single
+author_profile: true
 toc: true
 ---
 ## Install
@@ -27,17 +28,22 @@ from dreamgraph import start
 start()
 ```
 
-While you need to choose a short name in the beginng (No visitor of you post will see it, its just a name for you. If you manage several accounts, it may be helpful so you can distinguish them. Otherwise, you are free to choose a random sequel of letters).
+While you need to choose a short name in the beginning (no visitor of you post will see it, its just a name for you. If you manage several accounts, it may be helpful so you can distinguish them. Otherwise, you are free to choose a random sequel of letters).
 
 If you are curious what happens here, it has an own page in this documentary, here: start-Link. How do I do this, btw?
 
-## Next steps
+## Create a page
 
 You probably want to create a page. You can do this via this command:
 
 ```
-from dreamgraph import create_page
+from dreamgraph import start, create_page
 
-client.create_page
+client = start()
+
+client.create_page((title='Test', content=[{'tag': 'p', 'children': ['Hello world']}])
 ```
 
+Let's take a look at what we did here:
+
+### 
