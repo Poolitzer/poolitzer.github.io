@@ -6,6 +6,8 @@ toc: true
 ---
 Dreamgraphs aim is to give foreign developern a nice way to work with Telegraph. Therefore, we didn't rename anything from the API. You can have a look at the documentation of Telegraph [here](http://telegra.ph/api) and don't need to think about any differences.
 
+We split all the methods up in some nice categorys. That resulted in only 4 real methods, all other "methods" are attributes to different classes. May sound complicate, but will speed up your developing, believe us.
+
 ## Methods
 
 Lets dive right into it, shall we?
@@ -48,7 +50,7 @@ You should use this method if you already have created an account and know its a
 It only has this attribute and it's required. A working exam:
 
 ```
-from dreamgraph import NewAccount
+from dreamgraph import LogIn
 
 client = LogIn('a00bdbbbca7e11829119c405907feca8fe9151e5e1400084998cec3039c9')
 
@@ -58,11 +60,11 @@ client = LogIn('a00bdbbbca7e11829119c405907feca8fe9151e5e1400084998cec3039c9')
 
 Honestly. WTF?
 
-## Attributes
+## Account-Attributes
 
 ### get_account_info
 
-Useful if you want to get informations about your account. It needs the access_token as attribute
+Useful if you want to get informations about your account. It needs the access_token as attribute.
 
 Calling this attribute of your account class will return you 
 
