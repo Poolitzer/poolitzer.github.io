@@ -66,9 +66,30 @@ Honestly. WTF?
 
 Useful if you want to get informations about your account. It needs the access_token as attribute.
 
+**Insert Shit**
+
+### edit_account_info
+
+With this attribute, you can edit your account informations. We got your back, Legolas1337. It can have the following attributes:
+
+* short_name
+
+__Not required__ Your account name. No one will see it, it's for you in case you have to manage several acoounts. Otherwise, you are free to choose any garbage.
+
+* author_name
+
+__Not required__ The name which will appear next to your posts. It's visible, so choose wise.
+
+* author_url
+
+__Not required__ The URL which will open when you click on the author name. You can pass it without a name, but it won't be shown to the visitors.
+
+###
+
 Calling this attribute of your account class will return you 
 
 ['get_account_info', 'edit_account_info', 'revoke_access_token', 'create_page', 'edit_page', 'get_page', 'get_page_list', 'get_views']
+
 
 ## Objects
 
