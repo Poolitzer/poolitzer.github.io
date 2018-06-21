@@ -47,7 +47,7 @@ You should use this method if you already have created an account and know its a
 
 * access_token
 
-It only has this attribute and it's required. A working exam:
+It only has this attribute and it's required. A working example:
 
 ```
 from dreamgraph import LogIn
@@ -74,21 +74,34 @@ With this attribute, you can edit your account informations. We got your back, L
 
 * short_name
 
-__Not required__ Your account name. No one will see it, it's for you in case you have to manage several acoounts. Otherwise, you are free to choose any garbage.
+_Not required_ Your account name. No one will see it, it's for you in case you have to manage several acoounts. Otherwise, you are free to choose any garbage.
 
 * author_name
 
-__Not required__ The name which will appear next to your posts. It's visible, so choose wise.
+_Not required_ The name which will appear next to your posts. It's visible, so choose wise.
 
 * author_url
 
-__Not required__ The URL which will open when you click on the author name. You can pass it without a name, but it won't be shown to the visitors.
+_Not required_ The URL which will open when you click on the author name. You can pass it without a name, but it won't be shown to the visitors.
+
+A working example could look like this:
+
+```
+from dreamgraph import LogIn
+
+client = LogIn('a00bdbbbca7e11829119c405907feca8fe9151e5e1400084998cec3039c9')
+
+client.edit_account_info(
+
+```
+
+
 
 ###
 
 Calling this attribute of your account class will return you 
 
-['get_account_info', 'edit_account_info', 'revoke_access_token', 'create_page', 'edit_page', 'get_page', 'get_page_list', 'get_views']
+'revoke_access_token', 'create_page', 'edit_page', 'get_page', 'get_page_list', 'get_views']
 
 
 ## Objects
