@@ -3,7 +3,6 @@ layout: splash
 
 
 ---
-<link rel="shortcut icon" type="image/png" href="/poolitzer.github.io/assets/images/avatar.jpg">
 <div style="text-align:center"><img src ="/poolitzer.github.io/assets/images/dg.jpg"></div>
 
 ## Hello
