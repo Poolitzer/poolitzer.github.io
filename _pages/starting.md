@@ -11,7 +11,7 @@ The easiest way to install DreamGraph is via pip.
 
 `pip install dreamgraph`
 
-You can also clone this project from GitHub and generate your own instance, because you just can ;P
+You can also clone this project from GitHub and generate your own instance, because you like things complicated ;P
 ```
 git clone https://github.com/JasurbekNURBOYEV/DreamGraph.git
 

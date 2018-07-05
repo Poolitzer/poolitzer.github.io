@@ -6,15 +6,14 @@ toc: true
 ---
 Dreamgraphs aim is to give foreign developern a nice way to work with Telegraph. Therefore, we didn't rename anything from the API. You can have a look at the documentation of Telegraph [here](http://telegra.ph/api) and don't need to think about any differences.
 
-We split all the methods up in some nice categorys. That resulted in only 4 real methods, all other "methods" which would otherwise require the access token are attributes to the account class. These attributes often have attributes for themself. All of them return one of the listed objects. May sound complicated, but will speed up your developing, believe us.
 
-## Methods
+## Account
 
-Lets dive right into it, shall we?
+Everything related to your account.
 
 ### NewAccount
 
-This method creates you an account. It has three attributes, where only one of it is required, and returns an [Account object](#account):
+This method creates you an account. It has three attributes, where only one of it is required, and returns an [Account object](#account-1):
 
 * short_name
 
@@ -43,7 +42,7 @@ And you would get your token, which looks like this:
 
 ### LogIn
 
-You should use this method if you already have created an account and know its access_token. It returns an [Account object](#account).
+You should use this method if you already have created an account and know its access_token. It returns an [Account object](#account-1).
 
 * access_token
 
@@ -56,17 +55,12 @@ client = LogIn('a00bdbbbca7e11829119c405907feca8fe9151e5e1400084998cec3039c9')
 
 ```
 
-### msg_to_node
-
-Honestly. WTF?
-
-## Attributes
 
 ### get_account_info
 
 FUCKING TODOD!!!!!!!
 
-Useful if you want to get informations about your account. Doesn't have any attributes. Returns an [Account object](#account).
+Useful if you want to get informations about your account. Doesn't have any attributes. BUT SHOULD, FUTURE!. Returns an [Account object](#account-1).
 
 A working example:
 
@@ -81,7 +75,7 @@ print(client.get_account_info.
 
 ### edit_account_info
 
-With this attribute, you can edit your account informations. We got your back, Legolas1337. Returns an [Account object](#account). It can have the following attributes:
+With this method, you can edit your account informations. We got your back, Legolas1337. Returns an [Account object](#account-1). It can have the following attributes:
 
 * short_name
 
@@ -108,7 +102,7 @@ print(new_informations.author_name)
 
 ### revoke_access_token
 
-In case you want to revoke you access token. You will get an [Account object](#account), but only the new access_token and the auth_url of it. It doesn't take any attributes, so a working example could look like this:
+In case you want to revoke you access token. You will get an [Account object](#account-1), but only the new access_token and the auth_url of it. It doesn't take any attributes, so a working example could look like this:
 
 ```
 from dreamgraph import LogIn
@@ -122,9 +116,13 @@ print(my_token.access_token)
 
 If you used start() before, you can't do this anymore. Go to the [LogIn](#login) section of this documentation to see how you can login now.
 
+## pages
+
+Everything around pages \O/
+
 ### create_page
 
-This attribute has five attributes, two are required. It returns a [Page object](#page)
+This method has five attributes, two are required. It returns a [Page object](#page)
 
 
 ###
@@ -154,7 +152,7 @@ Every user is able to see this right next to your post. If you set one during th
 
 This URL is behind the author_name. You can send it without an author_name, but no one will see it. Returns None if you didn't set one.
 
-There are two more you only get when you call getAccountInfo with these as attributes.
+_There are two more you only get when you call getAccountInfo with these as attributes._
 
 * auth_url
 
@@ -170,7 +168,27 @@ This object does always have four attributes, and there are six more it can have
 
 * path
 
-This is the part of the URL after https://telegra.ph/. It comes in handy because when you use some attributes, you don't have to type the whole URL.
+This is the part of the URL after https://telegra.ph/. It comes in handy because when you use some attributes, you don't have to type the whole URL. Expect something like _Test-06-18-27_
 
 * url
 
+It's the whole URL, surprise. Will look like _https://telegra.ph/Test-06-18-27_.
+
+* title
+
+This is the title of the page, the big black one before the post content starts. In our example it's *Test*.
+
+
+* description
+
+Basically the first about 500 charakters of a post.
+
+* content
+
+The content of the post. It's an array of node elemets, you can find out about them here.
+
+* views
+
+The view counter, returned in an integer.
+
+_Then there are some special methods._
