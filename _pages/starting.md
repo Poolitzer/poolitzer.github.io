@@ -32,7 +32,7 @@ start()
 
 While you need to choose a short name in the beginning (no visitor of your posts will see it, its just a name for you. If you manage several accounts, it may be helpful so you can distinguish them. Otherwise, you are free to choose a random sequel of letters), the rest of the attributes can simply be skipped by pressing enter. 
 
-If you are curious what happens here, it has an own page in this documentary, [here]({{ site.baseurl }}{% link _pages/sign_in.md %}).
+If you are curious what happens here, it has an own page in this documentary, [here]({{ site.baseurl }}{% link _pages/start.md %}).
 
 ## Create a page
 

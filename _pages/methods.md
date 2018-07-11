@@ -6,6 +6,9 @@ toc: true
 ---
 Dreamgraphs aim is to give foreign developern a nice way to work with Telegraph. Therefore, we didn't rename anything from the API. You can have a look at the documentation of Telegraph [here](http://telegra.ph/api) and don't need to think about any differences.
 
+I will give you a quick introduction to this side (and in some extend to the API) now so you are able to navigate and find anything you want quickly.
+
+You will work with Dreamgraph in this easy way: You call a method. Dreamgraph returns you an object. We build the documentation in the same way: First, you will find all the methods. After that, we explain the objects.
 
 ## Account
 
@@ -122,10 +125,38 @@ Everything around pages \O/
 
 ### create_page
 
-This method has five attributes, two are required. It returns a [Page object](#page)
+This method has five attributes, two are required. It returns a [Page object](#page):
+
+* title
+
+_Required_ This big black string your post starts with...
+
+* content
+
+_Required_  Pass it as a node list. Find out about nodes [here]({{ site.baseurl }}{% link _pages/node.md %})
+
+* author_name
+
+_Not required_ only pass this if you want to change it, otherwise you can ignore that.
+
+* auth_url
+
+_Not required_ you can pass it here, if you already have one in your account, you don't need to.
+
+* return_content
+
+__Not required_ Boolean. Default is true. If you don't need to work with content in your skript, you can set this to false and take a bit load off the Telegram Servers. But keep in mind that they are used to handle a lot more traffic then your little API call does, so no need to change that as well.
 
 
-###
+### edit_page
+
+You can edit a post with this method. If you want to make sure that you don't run into a denied error, you can either call [get_page](#get_page) and check if can_edit is true or you take the path from [get_page_list](#get_page_list)
+
+
+
+### get_page
+
+### get_page_list
 
 Calling this attribute of your account class will return you 
 
@@ -164,7 +195,7 @@ This integer shows the total number of pages belonging to the Telegraph account.
 
 ### Page
 
-This object does always have four attributes, and there are six more it can have.
+This object describes a telegraph post.
 
 * path
 
@@ -178,17 +209,30 @@ It's the whole URL, surprise. Will look like _https://telegra.ph/Test-06-18-27_.
 
 This is the title of the page, the big black one before the post content starts. In our example it's *Test*.
 
+* imge_url
+
+This can be passed if a cover image is given. A cover image is a image in the beginning of a post. No text befor it.
 
 * description
 
-Basically the first about 500 charakters of a post.
+Basically the first about 500 characters of a post.
 
 * content
 
-The content of the post. It's an array of node elemets, you can find out about them here.
+The content of the post. It's an array of node elemets, you can find out about them [here]({{ site.baseurl }}{% link _pages/node.md %}).
 
 * views
 
 The view counter, returned in an integer.
 
-_Then there are some special methods._
+* can_edit
+
+Either true or false (_boolean_), depends if it's your page or isn't. OR ALWAYS FALSE BECAUSE FUTURE CAN'T FIX HIS FUCKING CODE! still love you mate, good job ;P
+
+* author_name
+
+If the page has an author name, it will be returned. Otherwise, its None.
+
+* author_url
+
+If the author has a URL, you can get it like this. Otherwise, its None,
