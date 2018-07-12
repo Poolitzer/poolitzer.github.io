@@ -6,10 +6,6 @@ toc: true
 ---
 Dreamgraphs aim is to give foreign developern a nice way to work with Telegraph. Therefore, we didn't rename anything from the API. You can have a look at the documentation of Telegraph [here](http://telegra.ph/api) and don't need to think about any differences.
 
-I will give you a quick introduction to this side (and in some extend to the API) now so you are able to navigate and find anything you want quickly.
-
-You will work with Dreamgraph in this easy way: You call a method. Dreamgraph returns you an object. We build the documentation in the same way: First, you will find all the methods. After that, we explain the objects.
-
 ## Account
 
 Everything related to your account.
@@ -20,7 +16,7 @@ This method creates you an account. It has three attributes, where only one of i
 
 * short_name
 
-⋅⋅⋅_Required_ No one apart of you will know this, so you are free to choose any name you want. 
+_Required_ No one apart of you will know this, so you are free to choose any name you want. 
 
 * author_name
 
@@ -34,7 +30,7 @@ What you probably want from this is your access_token. You will need it for ever
 ```python
 from dreamgraph import NewAccount
 
-client = NewAccount('test', 'Pool', 't.me/poolitzer')
+client = NewAccount('test', 'Pool', 'https://t.me/poolitzer')
 
 print(client.access_token)
 
@@ -116,10 +112,10 @@ my_token = client.revoke_access_token
 
 print(my_token.access_token)
 ```
-
+<p style="text-align: center; font-weight: bold;">Attention!</p>
 If you used start() before, you can't do this anymore. Go to the [LogIn](#login) section of this documentation to see how you can login now or to our [start page]({{ site.baseurl }}{% link _pages/start.md %}) to see where you have to paste your new token.
 
-## pages
+## Pages
 
 Everything around pages \O/
 
@@ -133,19 +129,17 @@ _Required_ This big black string your post starts with...
 
 * content
 
-_Required_  Pass it as a node list. Find out about nodes [here]({{ site.baseurl }}{% link _pages/node.md %})
+_Required_  Pass it as a node list. You can find out about nodes [here]({{ site.baseurl }}{% link _pages/node.md %}).
 
 * author_name
 
-_Not required_ only pass this if you want to change it, otherwise you can ignore that.
+* author_url
 
-* auth_url
-
-_Not required_ you can pass it here, if you already have one in your account, you don't need to.
+_Not required_ Only pass them if you want to change it, otherwise you can ignore that.
 
 * return_content
 
-__Not required_ Boolean. Default is true. If you don't need to work with content in your skript, you can set this to false and take a bit load off the Telegram Servers. But keep in mind that they are used to handle a lot more traffic then your little API call does, so no need to change that as well.
+_Not required_ Boolean. Default is true. If you don't need to work with content in your skript, you can set this to false and take a bit load off the Telegram Servers. But keep in mind that they are used to handle a lot more traffic then your little API call does, so no need to change that as well.
 
 ```python
 from Dreamgraph import start
@@ -153,16 +147,13 @@ from Dreamgraph import start
 client = start()
 
 mypage = client.create_page(title='Test', content=[{'tag': 'p', 'children': ['I think, therefore I am']}], author_name='DeepThought')
-
-editpage = mypage.path
-
 ```
 
 ### edit_page
 
 You can edit a post with this method. If you want to make sure that you don't run into a denied error, you can either call [get_page](#get_page) and check if can_edit is true or you take the path from [get_page_list](#get_page_list).
 
-Three atrributes are required, it returns a [Page object](#page):
+Three attributes are required, it returns a [Page object](#page):
 
 * path
 
@@ -178,11 +169,9 @@ _Required_ You need to pass this [node element]({{ site.baseurl }}{% link _pages
 
 * author_name
 
-_Not required_ It will use the author name of you account if you don't pass this.
+* author_url
 
-* auth_url
-
-_Not required_ Same for this.
+_Not required_ It will use the author name and/or url of you account if you don't pass this.
 
 * return_content
 
@@ -190,25 +179,90 @@ _Not required_ Boolean, default is false. Returns the content in the Page object
 
 
 ```python
+from Dreamgraph import start
 
-#we use mypage and client from the example above
+client = start()
+
+#we use mypage from the example above
+
+mypage = client.create_page(title='Test', content=[{'tag': 'p', 'children': ['I think, therefore I am']}], author_name='DeepThought')
 
 editedpage = client.edit_page(mypage.path, 'Glados takes over', mypage.content, author_url='http://ApertureScience.com')
-
 ```
 
 ### get_page
 
-Returns the [page object](#page) for a page \o/
+Returns the [page object](#page) for a page with the can_edit attribute \o/
 
-* 
+* path
+
+_Required_ The path to the site you want to look up.
+
+* return_content
+
+_Not required_ Boolean, default is true. Doesn't return the content in the object otherwise.
+
+```python
+
+from dreamgraph import start
+
+client = start()
+
+aPage = client.get_page('Sample-Page-06-21-9')
+
+if aPage.can_edit is True:
+	print('Hurray')
+else:
+	print('ohhh :(')
+```
 
 ### get_page_list
 
-Calling this attribute of your account class will return you 
+Returns the [PageList object](#pagelist), which is a list of pages belonging to an account. The most recently created articles come first.
 
-'revoke_access_token', 'create_page', 'edit_page', 'get_page', 'get_page_list', 'get_views']
+* offset
 
+_Not required_ This is the sequential number of the first page to be returned. Default is 0.
+
+* limit
+
+_Not required_ Limits the number of pages to be retrieved. While default is 50, you aren't allowed to go over 200.
+
+```python
+
+from dreamgraph import start
+
+client = start()
+
+pagelist = get_page_list(limit=100)
+
+print(result.pages[0].url)
+```
+
+
+### get_views
+
+Returns the [PageViews object](#pageviews) of a post. Only one attribute is required.
+
+* path
+
+_Required_ If you still don't know what a path is: The part of the URL behind telegra.ph.
+
+* year
+
+_Not always required_ You can pass this if you want to get the views for a specific year. You have to pass this if you want to get the views for a specific month. Needs to be within 2000-2100.
+
+* month
+
+_Not always required_ You can pass this if you want to get the views for a specific month. You have to pass this if you want to get the views for a specific day. Needs to be between 1 and 12.
+
+* day
+
+_Not always required_ You can pass this if you want to get the views for a specific day. You have to pass this if you want to get the views for a specific hour. Needs to be between 1-31.
+
+* hour
+
+_Not required_ You can pass this if you want to get the views for a specific hour of the day. Use the 24 hours format.
 
 ## Objects
 
@@ -228,13 +282,13 @@ Every user is able to see this right next to your post. If you set one during th
 
 * author_url
 
-This URL is behind the author_name. You can send it without an author_name, but no one will see it. Returns None if you didn't set one.
+This URL is behind the author name. You can send it without an author name, but no one will see it. Returns None if you didn't set one.
 
 _There are two more you only get when you call getAccountInfo with these as attributes._
 
 * auth_url
 
-This is a url user can use to login into their account on any brother. It will only work once during 5 minutes.
+This is a url user can use to login into their account on any brother. It will only work once during 5 minutes. AND YOU CAN'T GET IT RIGHT NOW BECAUSE FUTURE CANT DO SHIT!
 
 * page_count
 
@@ -254,11 +308,7 @@ It's the whole URL, surprise. Will look like _https://telegra.ph/Test-06-18-27_.
 
 * title
 
-This is the title of the page, the big black one before the post content starts. In our example it's *Test*.
-
-* imge_url
-
-This can be passed if a cover image is given. A cover image is a image in the beginning of a post. No text befor it.
+This is the title of the page, the big black one before the post content starts. In our example it's **Test**.
 
 * description
 
@@ -276,10 +326,38 @@ The view counter, returned in an integer.
 
 Either true or false (_boolean_), depends if it's your page or isn't. OR ALWAYS FALSE BECAUSE FUTURE CAN'T FIX HIS FUCKING CODE! still love you mate, good job ;P
 
+While you can expect any of the attributes above to always show up when you get the page object, the following three won't always be there.
+
+* imge_url
+
+This can be passed if a cover image is given. A cover image is a image in the beginning of a post. No text befor it.
+
 * author_name
 
 If the page has an author name, it will be returned. Otherwise, its None.
 
 * author_url
 
-If the author has a URL, you can get it like this. Otherwise, its None,
+If the author has a URL, you can get it like this. Otherwise, its None.
+
+### PageList
+
+This object is a list of page objects. Most recently created ones come first.
+
+* total_counter
+
+Total number of pages belonging to this specific account. It's an integer.
+
+* pages
+
+The requested pages in a list.
+
+### PageViews
+
+This object is the number of PageViews a Telegram post has.
+
+* views This is an integer.
+
+### Node and NodeElement
+
+Two objects which you will encounter in the content attribute of a page. Head over to [this page]({{ site.baseurl }}{% link _pages/node.md %}) to learn about them.
