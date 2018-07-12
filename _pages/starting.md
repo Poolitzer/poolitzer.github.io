@@ -12,7 +12,7 @@ The easiest way to install DreamGraph is via pip.
 `pip install dreamgraph`
 
 You can also clone this project from GitHub and generate your own instance, because you like things complicated ;P
-```
+```shell 
 git clone https://github.com/JasurbekNURBOYEV/DreamGraph.git
 
 cd DreamGraph
@@ -24,7 +24,7 @@ python setup.py install
 
 In order to post on Telegraph, you need an access_token so it knows who is posting. DreamGraph provides you quite an easy way to login. Just call start() in the beginning of your code. It will create an account the first time you run it and log you back in when you restart your skript.
 
-```
+```python
 from dreamgraph import start
 
 start()
@@ -38,7 +38,7 @@ If you are curious what happens here, it has an own page in this documentary, [h
 
 You probably want to create a page. You can do this with this code:
 
-```
+```python
 from dreamgraph import start
 
 client = start()
@@ -72,7 +72,7 @@ This is one of the two required parameters. It will be the title of your Telegra
 
 #### content=[{'tag': 'p', 'children': ['Hello world']}]
 
-The second required attribute. It's a Node element, which looks a bit unhandy, we know. Hopefully we are able to add easy html and/or markdown support soon.
+The second required attribute. It's a Node element, which looks a bit unhandy, we know. Hopefully we are able to add easy html and/or markdown support soon. Right now, have a look at [this page]({{ site.baseurl }}{% link _pages/node.md %}) to get a nice introduction.
 
 ### Check your page
 `new_page.url`
@@ -80,4 +80,4 @@ As you can see, new_page has some attributes. One of these is the URL of your Te
 
 ## Where to go now
 
-First of all, congrats! You managed to post your first page. Maybe thats enough for you, probably not. We would suggest you now to go to the [methods page]({{ site.baseurl }}{% link _pages/methods.md %}) and check out some interesting methods like edit_page. Or have a look at our examples where you see code which is actually used by some projects.
+First of all, congrats! You managed to post your first page. Maybe thats enough for you, probably not. We would suggest you now to go to the [methods page]({{ site.baseurl }}{% link _pages/methods.md %}) and check out some interesting methods like edit_page. Or have a look at our [examples]({{ site.baseurl }}{% link _pages/examples.md %}) where you see code which is actually used by some projects.

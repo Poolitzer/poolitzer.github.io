@@ -20,7 +20,7 @@ This method creates you an account. It has three attributes, where only one of i
 
 * short_name
 
-_Required_ No one apart of you will know this, so you are free to choose any name you want. 
+⋅⋅⋅_Required_ No one apart of you will know this, so you are free to choose any name you want. 
 
 * author_name
 
@@ -31,7 +31,7 @@ _Not required_ This is the name you choose to let appear as author of your posts
 _Not required_ Any URL will work. You have to add http:// at the beginning though, otherwise you will get an AUTHOR_URL_INVALID error.
 
 What you probably want from this is your access_token. You will need it for everything else, so remember it. A working code could look like this:
-```
+```python
 from dreamgraph import NewAccount
 
 client = NewAccount('test', 'Pool', 't.me/poolitzer')
@@ -51,7 +51,7 @@ You should use this method if you already have created an account and know its a
 
 It only has this attribute and it's required. A working example:
 
-```
+```python
 from dreamgraph import LogIn
 
 client = LogIn('a00bdbbbca7e11829119c405907feca8fe9151e5e1400084998cec3039c9')
@@ -67,10 +67,10 @@ Useful if you want to get informations about your account. Doesn't have any attr
 
 A working example:
 
-```
-from dreamgraph import LogIn
+```python
+from dreamgraph import start
 
-client = LogIn('a00bdbbbca7e11829119c405907feca8fe9151e5e1400084998cec3039c9')
+client = start()
 
 print(client.get_account_info.
 ```
@@ -93,10 +93,10 @@ _Not required_ The name which will appear next to your posts. It's visible, so c
 _Not required_ The URL which will open when you click on the author name. You can pass it without a name, but it won't be shown to the visitors.
 
 A working example could look like this:
-```
-from dreamgraph import LogIn
+```python
+from dreamgraph import start
 
-client = LogIn('a00bdbbbca7e11829119c405907feca8fe9151e5e1400084998cec3039c9')
+client = start()
 
 new_informations = client.edit_account_info('ThisIsAStupidShortName', 'AWayBetterAuthorName', 'https://telegram.org')
 
@@ -107,7 +107,7 @@ print(new_informations.author_name)
 
 In case you want to revoke you access token. You will get an [Account object](#account-1), but only the new access_token and the auth_url of it. It doesn't take any attributes, so a working example could look like this:
 
-```
+```python
 from dreamgraph import LogIn
 
 client = LogIn('a00bdbbbca7e11829119c405907feca8fe9151e5e1400084998cec3039c9')
@@ -117,7 +117,7 @@ my_token = client.revoke_access_token
 print(my_token.access_token)
 ```
 
-If you used start() before, you can't do this anymore. Go to the [LogIn](#login) section of this documentation to see how you can login now.
+If you used start() before, you can't do this anymore. Go to the [LogIn](#login) section of this documentation to see how you can login now or to our [start page]({{ site.baseurl }}{% link _pages/start.md %}) to see where you have to paste your new token.
 
 ## pages
 
@@ -147,14 +147,61 @@ _Not required_ you can pass it here, if you already have one in your account, yo
 
 __Not required_ Boolean. Default is true. If you don't need to work with content in your skript, you can set this to false and take a bit load off the Telegram Servers. But keep in mind that they are used to handle a lot more traffic then your little API call does, so no need to change that as well.
 
+```python
+from Dreamgraph import start
+
+client = start()
+
+mypage = client.create_page(title='Test', content=[{'tag': 'p', 'children': ['I think, therefore I am']}], author_name='DeepThought')
+
+editpage = mypage.path
+
+```
 
 ### edit_page
 
-You can edit a post with this method. If you want to make sure that you don't run into a denied error, you can either call [get_page](#get_page) and check if can_edit is true or you take the path from [get_page_list](#get_page_list)
+You can edit a post with this method. If you want to make sure that you don't run into a denied error, you can either call [get_page](#get_page) and check if can_edit is true or you take the path from [get_page_list](#get_page_list).
+
+Three atrributes are required, it returns a [Page object](#page):
+
+* path
+
+_Required_ The API needs to know which page you want to edit. Its the string after telegra.ph/ in your browser or the path attribute of a page object.
+
+* title
+
+_Required_ You need to pass this even if you don't want to edit it.
+
+* content
+
+_Required_ You need to pass this [node element]({{ site.baseurl }}{% link _pages/node.md %}) as well.
+
+* author_name
+
+_Not required_ It will use the author name of you account if you don't pass this.
+
+* auth_url
+
+_Not required_ Same for this.
+
+* return_content
+
+_Not required_ Boolean, default is false. Returns the content in the Page object otherwise.
 
 
+```python
+
+#we use mypage and client from the example above
+
+editedpage = client.edit_page(mypage.path, 'Glados takes over', mypage.content, author_url='http://ApertureScience.com')
+
+```
 
 ### get_page
+
+Returns the [page object](#page) for a page \o/
+
+* 
 
 ### get_page_list
 
