@@ -82,7 +82,7 @@ _Not required_ Your account name. No one will see it, it's for you in case you h
 
 * author_name
 
-_Not required_ The name which will appear next to your posts. It's visible, so choose wise.
+_Not required_ The name which will appear next to your posts. It's visible, so choose wisely.
 
 * author_url
 
@@ -135,7 +135,7 @@ _Required_  Pass it as a node list. You can find out about nodes [here]({{ site.
 
 * author_url
 
-_Not required_ Only pass them if you want to change it, otherwise you can ignore that.
+_Not required_ Only pass them if you want to change it, otherwise you can ignore these attributes.
 
 * return_content
 
@@ -171,7 +171,7 @@ _Required_ You need to pass this [node element]({{ site.baseurl }}{% link _pages
 
 * author_url
 
-_Not required_ It will use the author name and/or url of you account if you don't pass this.
+_Not required_ It will use the author name and/or url of you account if you set them and don't want specific ones for this article. In this case, call these attributes.
 
 * return_content
 
@@ -246,7 +246,7 @@ Returns the [PageViews object](#pageviews) of a post. Only one attribute is requ
 
 * path
 
-_Required_ If you still don't know what a path is: The part of the URL behind telegra.ph.
+_Required_ If you still don't know what a path is: The part of the URL behind telegra.ph/.
 
 * year
 
@@ -300,7 +300,7 @@ This object describes a telegraph post.
 
 * path
 
-This is the part of the URL after https://telegra.ph/. It comes in handy because when you use some attributes, you don't have to type the whole URL. Expect something like _Test-06-18-27_
+This is the part of the URL after https://telegra.ph/. It comes in handy when you use some methods, so you don't have to type the whole URL. Expect something like _Test-06-18-27_
 
 * url
 
