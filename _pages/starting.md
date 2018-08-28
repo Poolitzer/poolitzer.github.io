@@ -22,7 +22,7 @@ python setup.py install
 
 ## Get a login token
 
-In order to post on Telegraph, you need an access_token so it knows who is posting. DreamGraph provides you quite an easy way to login. Just call start() in the beginning of your code. It will create an account the first time you run it and log you back in when you restart your skript.
+In order to post on Telegraph, you need an access_token so it knows who is posting. DreamGraph provides you quite an easy way to login. Just call start() in the beginning of your code. It will create an account the first time you run it and log you back in when you restart your script.
 
 ```python
 from dreamgraph import start
@@ -30,9 +30,9 @@ from dreamgraph import start
 start()
 ```
 
-While you need to choose a short name in the beginning (no visitor of your posts will see it, its just a name for you. If you manage several accounts, it may be helpful so you can distinguish them. Otherwise, you are free to choose a random sequel of letters), the rest of the attributes can simply be skipped by pressing enter. 
+While you need to choose a short name in the beginning, the rest of the attributes can simply be skipped by pressing enter. This short name is just a name for you and Telegraph, no visitor of your posts will see it. If you manage several accounts, it may be helpful so you can distinguish them. Otherwise, you are free to choose a random sequel of letters.
 
-If you are curious what happens here, it has an own page in this documentary, [here]({{ site.baseurl }}{% link _pages/start.md %}).
+If you are curious what happens here, have a look at our [methods/objects page]({{ site.baseurl }}{% link _pages/methods.md %}), where it is described.
 
 ## Create a page
 
@@ -56,13 +56,13 @@ Well, you need to get the module you want to use from somewhere. There you go ;P
 
 ### Start your client
 `client = start()`
-client gets all necessary informations from start() to let you work with Telegraph, which is at least the access_token and maybe additional attributes you provided during the account creation.
+This will log you in when you already created an account or creates you one. All of this in a variable named client so you can access it later.
 
 ### Create your first page
 `new_page = client.create_page(title='Test', content=[{'tag': 'p', 'children': ['Hello world']}])`
 Probably the most interesting part in our little example. Lets split it up in it's parts.
 
-#### client.create_page()
+#### new_page=client.create_page()
 
 You call `create_page` with necessary parameters from client and store it's content in a variable. Nice beginning.
 
@@ -80,4 +80,4 @@ As you can see, new_page has some attributes. One of these is the URL of your Te
 
 ## Where to go now
 
-First of all, congrats! You managed to post your first page. Maybe thats enough for you, probably not. We would suggest you now to go to the [methods page]({{ site.baseurl }}{% link _pages/methods.md %}) and check out some interesting methods like edit_page. Or have a look at our [examples]({{ site.baseurl }}{% link _pages/examples.md %}) where you see code which is actually used by some projects.
+First of all, congrats! You managed to post your first page. Maybe thats enough for you, probably not. We would suggest you now to go to the [methods/objects page]({{ site.baseurl }}{% link _pages/methods.md %}) and check out some interesting methods like edit_page. Or have a look at our [examples]({{ site.baseurl }}{% link _pages/examples.md %}) where you see code which is actually used by some projects.

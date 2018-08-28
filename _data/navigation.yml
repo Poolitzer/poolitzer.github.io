@@ -2,7 +2,7 @@
 main:
   - title: "Getting Started"
     url: /starting/
-  - title: "Methods"
+  - title: "Methods/Objects"
     url: /methods/
   #- title: "Content"
    # url: /content/
